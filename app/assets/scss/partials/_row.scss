@@ -16,7 +16,9 @@
     }
     
     #features .row {
-        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em 4em;
     }
     
     #features .feature-item {
