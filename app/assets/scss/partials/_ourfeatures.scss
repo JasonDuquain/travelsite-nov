@@ -1,47 +1,63 @@
 
 .section-title {
-    
+    font-size: 2.55rem;
+    font-weight: 300;
+    text-align: center;
     
     @include breakpoint($small) {
-        
+        font-size: 3.75rem;    
     }
     
     strong {
-        
+        font-weight: 500;    
     }
     
     &__icon {       
-        
+        margin-bottom: .6rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         
         @include breakpoint($small) {
-            
+            margin-right: .5rem;
+            margin-left: 0;
+            display: inline-block;
+            margin-bottom: 0;
         }
     }
 }
 
-.feature-item {
-    
-    
+.feature-item {  
+    position: relative;
+    padding-bottom: 2.5rem;
     
     @include breakpoint($small) {
-        
+        padding-left: 5.875rem;     
     }
     
     &__icon {
-        
+        display: block;
+        margin: 0 auto;
         
         
         @include breakpoint($small) {
-        
+            position: absolute;
+            left: 0;
             
         }
     }
     
     &__title {
-        
+        font-weight: 300;
+        margin-bottom: .8rem;
+        font-size: 1.6rem;
+        margin-top: .7rem;
+        text-align: center;
         
         @include breakpoint($small) {
-            
+            font-size: 1.875rem;
+            margin-top: 1em;
+            text-align: left;
         }
     }
 }
