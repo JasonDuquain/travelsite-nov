@@ -22,15 +22,19 @@
     }
     
     #features .feature-item {
-        
+        grid-row: auto;
+        grid-column: auto;    
     }
     
     #testimonials .row {
-        
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 3em;
     }
     
     .page-section--testimonials .row__medium-4 {
-        
+        grid-row: auto;
+        grid-column: auto;
     } 
 
 }
