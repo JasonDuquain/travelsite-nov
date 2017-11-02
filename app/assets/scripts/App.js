@@ -72,7 +72,7 @@ class StickyHeader {
                 document.addEventListener('scroll', (e) => {    
                     for (let i = 0; i < this.navSections.length; i++) {
                         if (pageSect.getAttribute('data-matching-link').slice(1) ===    this.navSections[i].getAttribute('id')) {
-                            if (pageSect.getBoundingClientRect().top <= 0 &&             pageSect.getBoundingClientRect().bottom >= 0) {
+                            if (pageSect.getBoundingClientRect().top <= 0 && pageSect.getBoundingClientRect().bottom >= 0) {
                                this.navSections[i].classList.add('is-current-link');
                             } else {
                                 this.navSections[i].classList.remove('is-current-link');
@@ -93,5 +93,69 @@ class StickyHeader {
 var stickyHeader = new StickyHeader();
 
 /************** Modal.js ***********/
+
+class Modal {
+    constructor() {
+        this.openModalButton = document.querySelectorAll('.open-modal');
+        this.modal = document.querySelector('.modal');
+        this.closeModalButton = document.querySelector('.modal__close');
+        this.events();    
+    }
+    
+    events() {
+        this.openModalButton.forEach((openBtn) => {
+           openBtn.addEventListener('click', (e) => {
+               this.modal.classList.add('modal--is-visible');
+           }); 
+        });
+        
+        this.closeModalButton.addEventListener('click', (e) => {
+            this.modal.classList.remove('modal--is-visible');
+        });
+        
+        document.addEventListener('keyup', (e) => {
+            if ( (e.key.toLowerCase().indexOf('escape') >= 0) && (this.modal.classList.contains('modal--is-visible')) ) {
+               this.modal.classList.remove('modal--is-visible'); 
+            }
+        });
+        
+    }
+    
+    
+}
+
+
+var modal = new Modal();
+
+
+/**********BACK TO TOP**********/
+
+var btt = document.getElementById('back-to-top'),
+          body = document.body,
+          docElem = document.documentElement,
+          offset = 100,
+          isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1,
+          scrollPos, docHeight;
+
+            // Calculate the document height
+            var heights = [body.scrollHeight, body.offsetHeight, docElem.clientHeight, docElem.scrollHeight, docElem.offsetHeight];
+            docHeight = Math.max(...heights);
+            if (docHeight != 'undefined') {
+                offset = docHeight / 4;
+            }
+
+            // Add scroll event listener
+            window.addEventListener('scroll', function(event) {
+                scrollPos = body.scrollTop || docElem.scrollTop;
+                btt.className = (scrollPos > offset) ? "visible" : "";
+            });
+
+            // Add click event listener
+            btt.addEventListener('click', function(event) {
+                event.preventDefault();
+                (isFirefox) ? body.scrollTop = 0 : docElem.scrollTop = 0;
+                
+            });
+
 
 
