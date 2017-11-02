@@ -10,6 +10,11 @@
     @include breakpoint($medium) {
         background-color: rgba($lightblue, .3);
         overflow: initial;
+        position: fixed;
+        
+        &--dark {
+            background-color: rgba(23,51,72, .85);
+        }
     }
     
     @include breakpoint($large) {
@@ -74,6 +79,10 @@
                     padding: 12px 0; 
                     font-size: 1rem;
                     background-color: transparent;
+                    
+                    &.is-current-link {
+                        color: #fabb69;
+                    }
                 }
             }
             
@@ -97,10 +106,16 @@
     left: 50%;
     transform: translateX(-50%) scale(.8);
     transform-origin: center top;
+    transition: transform 300ms ease-out;
     
     @include breakpoint($medium) {
         left: auto;
         transform: translateX(0);
+        
+        .site-header--dark & {
+            transform: scale(.55);
+        }
+        
     }
 }
 
@@ -201,3 +216,16 @@
     transform: scale(1);
 }
 
+@keyframes yellowHighlight {
+    0% {
+        background-color: goldenrod;
+    }
+    
+    100% {
+       background-color: initial;
+    }
+}
+
+div:target > h2 {
+    animation: yellowHighlight 2000ms ease-out;
+}
