@@ -581,6 +581,17 @@ a {
   }
 }
 
+.reveal-item {
+  opacity: 0;
+  transition: all 1500ms ease-out;
+  transform: scale(1.15);
+}
+
+.reveal-item--is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .headline {
   font-weight: 300;
   color: #2f5572;
@@ -987,6 +998,7 @@ a {
 @media (min-width: 50em) {
   .site-header {
     background-color: rgba(47, 85, 114, 0.3);
+    overflow: initial;
   }
 }
 

@@ -43,3 +43,15 @@ a {
     }
 }
 
+.reveal-item {
+    opacity: 0;
+    transition: all 1500ms ease-out;
+    transform: scale(1.15);
+    
+    
+    &--is-visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+

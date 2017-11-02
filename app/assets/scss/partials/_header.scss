@@ -9,6 +9,7 @@
 
     @include breakpoint($medium) {
         background-color: rgba($lightblue, .3);
+        overflow: initial;
     }
     
     @include breakpoint($large) {
